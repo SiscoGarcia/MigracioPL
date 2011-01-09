@@ -19,3 +19,6 @@ Aquest procés de migració al programari lliure ha coincidit amb l'arribada de 
 Pel que fa a la validació d'usuaris, després de diversos intents, ens hem decantat per l'eBox, que ens permet dur a terme no només la validació d'usuaris, també la validació de la intraweb, del Moodle, dels serveis web, i fins i tot del servidor de fitxers. A tot això, el nostre maquinari és un conjunt de servidors que permeten tenir perfectament actualitzat el mirall que fem servir per actualitzar els programes, a més d'hostatjar-hi la intraweb, el Moodle, la nostra pàgina web i els fitxers. 
 
 (l'LDAP, també la part )
+
+Ara mateix no sé si això ja ho hem posat al wiki o què, però el que hem oblidat és el tema del servidor de fitxers :(
+
