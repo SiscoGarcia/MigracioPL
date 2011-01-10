@@ -67,58 +67,93 @@ Cal recordar que és una aplicació que encara es troba en fase beta, però té 
 
 [2] Pel que fa al GitHub, cal començar instal·lant-lo a l'ordinador que vulguem tenir sincronitzat, de manera que el primer que cal fer és:
 
-Download and install Git
-  git config --global user.name "Your Name"
-  git config --global user.email sisco.garcia@ubuntu.cat
+1.- Descarregar i instal·lar el Git
+
+	$ sudo apt-get install git-core git-gui git-doc
+
+		Els següents passos es poden obviar i passar directament a la creació d'un parell de claus:	
+		$ cd ~/.ssh
+		$ ls
+		$ mkdir key_backup
+		$ cp id_rsa* key_backup
+		$ ls
+		$ nano known_hosts
+
+	Creació d'un parell de claus:
+	$ ssh-keygen -t rsa -C "sisco.garcia@ubuntu.cat"
+	$ ls
+
+	Còpia de les claus al compte de GitHub:
+	$ sudo apt-get install xclip
+	$ cat ~/.ssh/id_rsa.pub | xclip -sel clip
+
+	Anem al web i a l'apartat de les claus (https://github.com/account) l'enganxem i li donem un nom.
+
+	Ens hi connectem per ssh i hi afegim els fitxers que vulguem compartir:
+	$ ssh git@github.com
+	$ git add /home/sisco/Documents/seminaristac/ApuntsMigracio.txt 
+
+	Podem comprovar l'estat del nostre compte:
+	$ git status -s
+
+
+2.- Tot seguit configurar-lo:
+
+	git config --global user.name "Your Name"
+	git config --global user.email sisco.garcia@ubuntu.cat
         
 
-Next steps:
+3.- Els passos següents són:
 
-  mkdir MigracioPL
-  cd MigracioPL
-  git init
-  touch README
-  git add README
-  git commit -m 'first commit'
-  git remote add origin git@github.com:SiscoGarcia/MigracioPL.git
-  git push origin master
+	Crear un directori on posar-hi algun fitxer (README) que vulguem pujar (push) al nostre compte de github i crear així el primer dipòsit:
+
+	mkdir MigracioPL
+	cd MigracioPL
+	git init
+	touch README
+	git add README
+	git commit -m 'first commit'
+	git remote add origin git@github.com:SiscoGarcia/MigracioPL.git
+	git push origin master
       
+	Quan ja existeix un dipòsit, el que podem fer és pujar-lo i modificar-lo de la següent manera:
 
-Existing Git Repo?
-
-  cd existing_git_repo
-  git remote add origin git@github.com:SiscoGarcia/MigracioPL.git
-  git push origin master
+	cd existing_git_repo
+	git remote add origin git@github.com:SiscoGarcia/MigracioPL.git
+	git push origin master
       
-Després:
+	Després podem anar al directori remot i veure què hi ha i modificar/configurar el que convingui:
 
-https://github.com/SiscoGarcia/MigracioPL
+	https://github.com/SiscoGarcia/MigracioPL
 
 
+4.- Des del costat de l'SparkleShare:
 
-Des del costat de l'SparkleShare:
+	Descarreguem (https://github.com/downloads/hbons/SparkleShare/sparkleshare-0.2-beta1.tar.gz) i instal·lem el paquet, però prèviament satisfem les 		dependències, ja que està creat amb C, amb:
 
-4. Using SparkleShare with Github
-4.1. How do I set up SparkleShare with Github?
+	$ sudo apt-get install gtk-sharp2 monodevelop mono-devel libndesk-dbus1.0-cil-dev libndesk-dbus-glib1.0-cil-dev python-nautilus git-core intltool 		gvfs gvfs-bin python-gtk2-dev openssh-client
 
-First off, get an account on Github if you don't already have one.
+	Hem de tenir prèviament instal·lat el make, si no és el cas l'instal·lem fàcilment amb:
+	$ sudo apt-get install make
 
-From your Dashboard, click New Repository. Fill in the required fields. We will refer to the name of this repository as the Folder Name from here on.
+	Descomprimim l'SparkleShare, ens situem al directori descomprimit i ja podem compilar-lo:
+	$ tar -zxvf sparkleshare-0.2-beta1.tar.gz
+	$ cd sparkleshare-0.2-beta1
+	$ ./configure
+	$ make
+	$ sudo make install
+	
 
-Now it gets a bit tricky. We will have to upload a so called SSH Public Key to Github to authenticate. SparkleShare has already created one for you if you have filled in First Run Screen. You can find it in your Home Folder in the .config/sparkleshare/ subfolders. It looks like sparkleshare.yourname@server.com.key.pub, but ofcourse with your email adress filled in. Copy the contents of this file.
+	Se'ns haurà creat un parell de claus que s'hauran desat al subdirectori .config/sparkleshare/ de la carpeta arrel (/).
+	Hem de copiar el contingut de la clau pública, que serà semblant a sparkleshare.yourname@server.com.key.pub (però amb el nostre correu electrònic 		enlloc de «yourname@server.com.key» al mig del nom de la clau) a l'apartat de les claus (https://github.com/account) del web; l'enganxem i li donem 		un nom (com abans, de fet el pas anterior pot obviar-se si només volem fer servir el compte de GitHub amb l'SparkleShare). Hem de prémer el botó 		«Add key» i ja podem sincronitzar l'SparkleShare amb el GitHub:
 
-Go to your Account Settings. Click SSH Public Keys. Now click Add a public Key. Paste the contents of the file you just copied into the Key text field and give the key a Title. Hit Add key.
+	Sincronitzem l'SparkleShare amb aquesta carpeta del GitHub:
 
-Now we can tell SparkleShare to sync with this folder. Click SparkleShare's Notification icon and select Sync Remote Folder.... Select Github as your server and enter your Github username and the folder name in the Folder Name entry.
+	Premem a la icona de notificació de l'SparkleShare i seleccionem «sincronitzar amb la carpeta remota».
+	Seleccionem el GitHub com al nostre servidor; entrem el nostre nom d'usuari i el nom de la carpeta a l'entrada «Nom de la Carpeta»; en el nostre 		cas és «Usuari/Carpeta» concretament «SiscoGarcia/MigracioPL».
 
-Now click Sync to start syncing!
-4.2. How do I add more collaborators on Github?
+	Només cal prémer Sincronitza per començar a sincronitzar!
 
-Your collaborator will have to get an account and add his or her SSH Public Key as described above, but he or she can skip the repository creation. Once that has finished you can easily add the person through the Github web interface.
-
-On Github, go to your Dashboard select the appropriate repository under Your Repositories. Click Admin and then Collaborators. You can search for your collaborator's username by typing inside the text entry. Then hit Add to add the person.
-
-Done! Now every user that is part of the team can sync with the folder.
 5. Sharing files
 5.1. How do I add files?
 
