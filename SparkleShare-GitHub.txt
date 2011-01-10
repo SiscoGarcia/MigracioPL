@@ -1,4 +1,6 @@
-SparkleShare és una aplicació que s'aprofita d'eines de comparació de versions en treballs col·laboratius, com és el cas del Gitorius (http://www.gitorious.org/) i del GitHub (http://www.github.com/). Per la qual cosa, i mentre no hi hagi la possibilitat d'instal·lar un servidor propi d'SparkleShare cal tenir obert un compte en alguna d'aquestes aplicacions.
+L'SparkleShare és una eina de sincronització i col·laborativa molt transparent per l'usuari, que no nota que hi és. Es troba en una versió molt incipient (beta) però està previst que es pugui disposar d'un servidor en local, de manera que l'usuari pugui tenir un control total de les dades... cal recordar que està feta amb programari lliure! També manté un registre dels canvis fets als fitxers (via web, de moment), amb la qual cosa si ens equivoquem sempre podem «revertir» els canvis, és a dir, tornar enrere. 
+
+L'SparkleShare és una aplicació que s'aprofita d'eines de comparació de versions en treballs col·laboratius, com és el cas del Gitorius (http://www.gitorious.org/) i del GitHub (http://www.github.com/). Per la qual cosa, i mentre no hi hagi la possibilitat d'instal·lar un servidor propi d'SparkleShare cal tenir obert un compte en alguna d'aquestes aplicacions.
 
 La manera de funcionar de l'SparkleShare és comparant la versió existent al servidor (el nostre compte de Git*) amb la que hi pugem, conservant sempre l'última modificada, i sincronitzant els canvis que fem tant al servidor com a la carpeta SparkleShare local, de manera que sempre tenim actualitzada l'última versió del document de què es tracti.
 
@@ -6,17 +8,42 @@ Aquesta idea original és modificada i permet fer servir el compte de Git* com u
 
 Així, en parlar de l'SparkleShare, i mentre no hi hagi la possibilitat d'emprar un servidor local, cal parlar del propi SparkleShare, i també de l'eina col·laborativa que triem, sigui el Gitorius o bé el GitHub.
 
-A l'hora de crear un compte d'SparkleShare hem de fer les següents passes:
+
+Per tal d'instal·lar l'SparkleShare el que cal és:
+
+Hem de baixar el paquet de http://www.sparkleshare.org (https://github.com/downloads/hbons/SparkleShare/sparkleshare-0.2-beta1.tar.gz), com que està fet amb C, cal satisfer un seguit de dependències, que als sistemes basats en debian es resolen amb:
+
+~$ sudo apt-get install gtk-sharp2 monodevelop mono-devel libndesk-dbus1.0-cil-dev libndesk-dbus-glib1.0-cil-dev python-nautilus git-core intltool gvfs gvfs-bin python-gtk2-dev openssh-client
+
+ara caldrà descomprimir el paquet amb:
+
+~$ tar -zxvf sparkleshare-0.2-beta1.tar.gz 
+
+ens situem a dintre del directori
+
+~$ cd sparkleshare-0.2-beta1
+
+i com que tenim satifetes les dependències només cal compilar el paquet amb les instruccions típiques:
+
+~$ ./configure
+~$ make
+~$ sudo make install
+
+
+Amb això ja tindrem instal·lat l'SparkleShare, ara caldrà configurar-lo.
+
+A l'hora de treballar amb l'SparkleShare hem de fer les següents passes:
 
 1.- crear un compte de Gitorius (http://gitorius.org) o de github (http://github.com)
 
 2.- crear un parell de claus PGP i exportar-la al gitorius (prèviament cal haver-la publicat i sincronitzat a un servidor de claus), també es pot fer a github
 
-3.- crear un dipòsit al gitorius [1] o al github i després enllaçar la carpeta que volem compartir perquè estigui a l'abast de tothom
+3.- crear un dipòsit al gitorius [1] o al github [2] i després enllaçar la carpeta que volem compartir perquè estigui a l'abast de tothom
 
 4.- configurar l'sparkleshare perquè hi apunti a aquesta carpeta
 
 5.- sincronitzar la del gitorius o del github amb la de l'ordinador
+
 
 [1] Comencem parlant del Gitorius:
 
@@ -30,8 +57,15 @@ Ara ja podem dir-li a l'SparkleShare que s'hi sincronitzi amb aquesta carpeta. P
 
 Es poden crear més usuaris (col·laboradors), equips, etc. però això ja ho tractarem en un altre moment.
 
+Cada vegada que fem alguna modificació (sobre els documents que hi tinguem o bé hi afegim alguna cosa nova) caldrà tornar a sincronitzar-nos (Premem la icona de notificació de l'SparkleShare i seleccionem «Sync Remote Folder...», triem «Gitorius» com al nostre servidor i introduim els noms del projecte i de la carpeta a «Folder Name». Només ens queda prémer «Sync» per començar a sincronitzar!), mentre que a la resta d'ordinadors que hi estan sincronitzats apareixerà una notificació d'aquesta modificació... és automàgic! 
+
+Cal recordar que és una aplicació que encara es troba en fase beta, però té una sèrie de possibilitats de compartició i de possibilitat de control sobre els fitxers (en poder tenir les dades en un servidor propi) que li donen un valor afegit no igualat per les altres aplicacions semblants.
 
 
+
+
+
+[2] Pel que fa al GitHub, cal començar instal·lant-lo a l'ordinador que vulguem tenir sincronitzat, de manera que el primer que cal fer és:
 
 Download and install Git
   git config --global user.name "Your Name"
