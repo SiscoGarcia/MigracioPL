@@ -152,15 +152,26 @@ Cal recordar que és una aplicació que encara es troba en fase beta, però té 
 	Premem a la icona de notificació de l'SparkleShare i seleccionem «sincronitzar amb la carpeta remota».
 	Seleccionem el GitHub com al nostre servidor; entrem el nostre nom d'usuari i el nom de la carpeta a l'entrada «Nom de la Carpeta»; en el nostre 		cas és «Usuari/Carpeta» concretament «SiscoGarcia/MigracioPL».
 
-	Només cal prémer Sincronitza per començar a sincronitzar!
+	Només cal prémer «Sincronitza» per començar a sincronitzar!
 
-5. Sharing files
-5.1. How do I add files?
+4.2. Per afegir més col·laboradors al Github?
 
-Just put your files in one of your SparkleShare project folders. You can do this by dragging files over or to save from directly from an application. SparkleShare will notice your changes. No manual syncing work for you anymore!
-5.2. How do I share files with others?
+El col·laborador haurà d'aconseguir un compte i afegir seu o el seu SSH Clau Pública com s'ha descrit abans, però poden obvia la creació del dipòsit. Una vegada fet, fàcilment es pot afegir la persona a través de la interfície web de Github.
 
-Not only is everything in SparkleShare synced to your server, it will also automatically with all other clients connected to it. Again, no extra work!
-5.3. I made a mistake. How do I revert my changes?
+En Github, cal anar al «Dashboard» i seleccionar el dipòsit desitjat a l'apartat «Your Repositories». Llavors cal prémer «Admin», després «Col·laboradors». Cal buscar el nom d'usuari del col·laborador per escriure'l a interior de la caixeta d'entrada de text i prémer «Afegeix» per afegir la persona.
 
-Right click the affected file. There will be a menu entry called Get Earlier Version. From there you can select an earlier version of the file you want to check out. SparkleShare will create a copy of this file in the same folder.
+Fet! Ara cada usuari que forma part de l'equip ja pot sincronitzar amb la carpeta.
+
+5. Compartir fitxers
+
+5.1. Com es poden afegir fitxers?
+
+Només cal posar els fitxers en una de les carpetes del projecte SparkleShare. Pot fer-se això arrossegant fitxers a sobre o desant-les directament des d'una aplicació. L'SparkleShare notarà els canvis. No cal cap més feina manual de sincronització!
+
+5.2. Com compartir els fitxers amb altres?
+
+No només és tot en l'SparkleShare sincronitzat al nostre servidor, l'SparkleShare també ho fa automàticament amb tots altres clients que es van connectar amb ell. Una altra vegada, cap feina extra!
+
+5.3. En cas d'equivocació, com revertir els canvis?
+
+Fent clic amb el botó dret l'arxiu afectat. Hi haurà una entrada del menú anomenada «Aconseguir Versió Anterior». Des d'allà es pot seleccionar una versió anterior de l'arxiu que es vol comprovar. L'SparkleShare crearà una còpia d'aquest fitxer en la mateixa carpeta.
