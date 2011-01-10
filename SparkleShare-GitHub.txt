@@ -6,7 +6,30 @@ Aquesta idea original és modificada i permet fer servir el compte de Git* com u
 
 Així, en parlar de l'SparkleShare, i mentre no hi hagi la possibilitat d'emprar un servidor local, cal parlar del propi SparkleShare, i també de l'eina col·laborativa que triem, sigui el Gitorius o bé el GitHub.
 
-Comencem parlant del Gitorius:
+A l'hora de crear un compte d'SparkleShare hem de fer les següents passes:
+
+1.- crear un compte de Gitorius (http://gitorius.org) o de github (http://github.com)
+
+2.- crear un parell de claus PGP i exportar-la al gitorius (prèviament cal haver-la publicat i sincronitzat a un servidor de claus), també es pot fer a github
+
+3.- crear un dipòsit al gitorius [1] o al github i després enllaçar la carpeta que volem compartir perquè estigui a l'abast de tothom
+
+4.- configurar l'sparkleshare perquè hi apunti a aquesta carpeta
+
+5.- sincronitzar la del gitorius o del github amb la de l'ordinador
+
+[1] Comencem parlant del Gitorius:
+
+Des del panell de control (Dashboard) punxem a «Create a new project», emplenem els camps necessaris i se'ns demana de crear un nou dipòsit. Aquest nom és el que anomenarem «Folder name».
+
+Ara toca pujar la clau ssh pública al Gitorius per autenticar-nos. l'Sparkleshare ens n'ha creat una quan hem emplenat la pantalla «First Run Screen» (s'hi troba a la carpeta arrel de l'usuari, a la subcarpeta «.config/sparkleshare/» i és una cosa semblant a «sparkleshare.elteunom@server.com.key.pub»; cal copiar el contingut d'aquest fitxer, tornar al tauler de control, punxar «Manage SSH Keys» i «Add SSH Key», hi enganxem el contingut que hem copiat abans i desem («Save»).
+
+Ara ja podem dir-li a l'SparkleShare que s'hi sincronitzi amb aquesta carpeta. Punxem la icona de notificació de l'SparkleShare i seleccionem «Sync Remote Folder...», triem «Gitorius» com al nostre servidor i introduim els noms del projecte i de la carpeta a «Folder Name». Només ens queda pitjar «Sync» per començar a sincronitzar!
+
+(en el cas que ens ocupa la carpeta es troba a «seminaristac/seminaristac»)
+
+Es poden crear més usuaris (col·laboradors), equips, etc. però això ja ho tractarem en un altre moment.
+
 
 
 
