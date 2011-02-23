@@ -32,6 +32,8 @@ i com que tenim satifetes les dependències només cal compilar el paquet amb le
 
 Amb això ja tindrem instal·lat l'SparkleShare, ara caldrà configurar-lo.
 
+El primer que cal fer és obrir-lo (Aplicacions > Internet > SparkleShare) i omplir les dades que se'ns demana (usuari i correu-e); i després:
+
 A l'hora de treballar amb l'SparkleShare hem de fer les següents passes:
 
 1.- crear un compte de Gitorius (http://gitorius.org) o de github (http://github.com)
