@@ -30,11 +30,9 @@ i com que tenim satifetes les dependències només cal compilar el paquet amb le
 ~$ sudo make install
 
 
-Amb això ja tindrem instal·lat l'SparkleShare, ara caldrà configurar-lo.
+Amb això ja tindrem instal·lat l'SparkleShare, ara caldrà configurar-lo: el primer que cal fer és obrir-lo (Aplicacions > Internet > SparkleShare) i omplir les dades que se'ns demana (usuari i correu-e); amb la qual cosa l'SparkleShare crea un parell de claus a ~.config/sparkleshare.
 
-El primer que cal fer és obrir-lo (Aplicacions > Internet > SparkleShare) i omplir les dades que se'ns demana (usuari i correu-e); i després:
-
-A l'hora de treballar amb l'SparkleShare hem de fer les següents passes:
+Ara per tal de poder treballar amb l'SparkleShare hem de fer les següents passes:
 
 1.- crear un compte de Gitorius (http://gitorius.org) o de github (http://github.com)
 
@@ -42,9 +40,11 @@ A l'hora de treballar amb l'SparkleShare hem de fer les següents passes:
 
 3.- crear un dipòsit al gitorius [1] o al github [2] i després enllaçar la carpeta que volem compartir perquè estigui a l'abast de tothom
 
-4.- configurar l'sparkleshare perquè hi apunti a aquesta carpeta
+4.- sembla que hem de reiniciar l'ordinador
 
-5.- sincronitzar la del gitorius o del github amb la de l'ordinador
+5.- configurar l'sparkleshare perquè hi apunti a aquesta carpeta
+
+6.- sincronitzar la del gitorius o del github amb la de l'ordinador
 
 
 [1] Comencem parlant del Gitorius:
@@ -177,3 +177,5 @@ No només és tot en l'SparkleShare sincronitzat al nostre servidor, l'SparkleSh
 5.3. En cas d'equivocació, com revertir els canvis?
 
 Fent clic amb el botó dret l'arxiu afectat. Hi haurà una entrada del menú anomenada «Aconseguir Versió Anterior». Des d'allà es pot seleccionar una versió anterior de l'arxiu que es vol comprovar. L'SparkleShare crearà una còpia d'aquest fitxer en la mateixa carpeta.
+
+
